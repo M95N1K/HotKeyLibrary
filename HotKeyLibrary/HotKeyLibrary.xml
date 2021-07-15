@@ -1,0 +1,81 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>HotKeyLibrary</name>
+    </assembly>
+    <members>
+        <member name="T:HotKeyLibrary.HotKeys">
+            <summary>
+            Класс определяющий нажатие клавиш
+            </summary>
+        </member>
+        <member name="E:HotKeyLibrary.HotKeys.OnHotKey">
+            <summary>
+            Событие происходящее во время нажатия горячей клавишы (-1 клавиша не нажата)
+            </summary>
+        </member>
+        <member name="E:HotKeyLibrary.HotKeys.OnHotKeyString">
+            <summary>
+            Событие происходящее во время нажатия горячей клавишы (-1 клавиша не нажата)
+            </summary>
+        </member>
+        <member name="P:HotKeyLibrary.HotKeys.IsEnable">
+            <summary> Показывает запущен ли таймер </summary>
+        </member>
+        <member name="M:HotKeyLibrary.HotKeys.GetKeyAsync">
+            <summary>
+            Получение нажатых клавишь (для отслеживания запускается в цикле)
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:HotKeyLibrary.HotKeys.StartHK">
+            <summary>
+            Стартует таймер определения нажатий клавишы
+            </summary>
+        </member>
+        <member name="M:HotKeyLibrary.HotKeys.StopHK">
+            <summary>
+            Остановка таймера определяющего нажатия клавишь
+            </summary>
+        </member>
+        <member name="M:HotKeyLibrary.HotKeys.Finalize">
+            <summary>
+            Деструктор класса
+            </summary>
+        </member>
+        <member name="T:HotKeyLibrary.IHotKeys">
+            <summary>
+            Интерфейс класса определяющий нажатие клавиш
+            </summary>
+        </member>
+        <member name="P:HotKeyLibrary.IHotKeys.IsEnable">
+            <summary> Показывает запущен ли таймер </summary>
+        </member>
+        <member name="E:HotKeyLibrary.IHotKeys.OnHotKey">
+            <summary>
+            Событие происходящее во время нажатия горячей клавишы передающее массив кодов нажатых клавишь
+            </summary>
+        </member>
+        <member name="E:HotKeyLibrary.IHotKeys.OnHotKeyString">
+            <summary>
+            Событие происходящее во время нажатия горячей клавишы передающее нажатые клавиши в string
+            </summary>
+        </member>
+        <member name="M:HotKeyLibrary.IHotKeys.GetKeyAsync">
+            <summary>
+            Получение нажатых клавишь (для отслеживания запускается в цикле)
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:HotKeyLibrary.IHotKeys.StartHK">
+            <summary>
+            Стартует таймер определения нажатий клавишы
+            </summary>
+        </member>
+        <member name="M:HotKeyLibrary.IHotKeys.StopHK">
+            <summary>
+            Остановка таймера определяющего нажатия клавишь
+            </summary>
+        </member>
+    </members>
+</doc>
