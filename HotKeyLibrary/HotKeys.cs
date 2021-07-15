@@ -76,8 +76,20 @@ namespace HotKeyLibrary
                 OnHotKeyString?.Invoke(KeysToString(key));
                 return;
             }
+
+            if (i.Count == 2)
+                if (i[0] == 16 || i[0] == 17 || i[0] == 18)
+                {
+                    c = 0;
+                    _oldHotKey = new();
+                    List<int> key = new List<int>() { -1 };
+                    OnHotKey?.Invoke(key);
+                    OnHotKeyString?.Invoke(KeysToString(key));
+                    return;
+                }
+                    
             if (c > 0 && i.Count < c)
-                return;
+                        return;
             if (i != null)
             {
                 GetSingleHotKey(i);
@@ -89,8 +101,6 @@ namespace HotKeyLibrary
         private List<int> _oldHotKey = new();
         private void GetSingleHotKey(List<int> key)
         {
-            //List<int> result = new();
-
             bool equals = true;
             if (_oldHotKey.Count == key.Count)
             {
@@ -105,16 +115,15 @@ namespace HotKeyLibrary
 
             _oldHotKey = key;
             OnHotKey?.Invoke(key);
-            
+
             OnHotKeyString?.Invoke(KeysToString(key));
-            //return key;
         }
 
         private static string KeysToString(List<int> key)
         {
             string keyString = "";
             List<int> _key = new(key);
-            
+
             foreach (var item in _key)
             {
                 if (item > 159 && item < 166)
@@ -173,7 +182,7 @@ namespace HotKeyLibrary
                     keyString += conKey + " + ";
                 }
             }
-            if(keyString.Length > 3)
+            if (keyString.Length > 3)
                 keyString = keyString.Remove(keyString.Length - 3);
 
             return keyString;
