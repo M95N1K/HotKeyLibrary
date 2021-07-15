@@ -87,9 +87,9 @@ namespace HotKeyLibrary
                     OnHotKeyString?.Invoke(KeysToString(key));
                     return;
                 }
-                    
+
             if (c > 0 && i.Count < c)
-                        return;
+                return;
             if (i != null)
             {
                 GetSingleHotKey(i);
@@ -178,14 +178,113 @@ namespace HotKeyLibrary
                 }
                 else
                 {
-                    var conKey = (ConsoleKey)item;
-                    keyString += conKey + " + ";
+                    //var conKey = (ConsoleKey)item;
+                    keyString += KeyToString(item) + " + ";
                 }
             }
             if (keyString.Length > 3)
                 keyString = keyString.Remove(keyString.Length - 3);
 
             return keyString;
+        }
+
+        private static string KeyToString(int key)
+        {
+            string result = "";
+
+            if (key is > 47 and < 58)
+            {
+                switch (key)
+                {
+                    case 48:
+                        result = "0";
+                        break;
+                    case 49:
+                        result = "1";
+                        break;
+                    case 50:
+                        result = "2";
+                        break;
+                    case 51:
+                        result = "3";
+                        break;
+                    case 52:
+                        result = "4";
+                        break;
+                    case 53:
+                        result = "5";
+                        break;
+                    case 54:
+                        result = "6";
+                        break;
+                    case 55:
+                        result = "7";
+                        break;
+                    case 56:
+                        result = "8";
+                        break;
+                    case 57:
+                        result = "9";
+                        break;
+                    default:
+                        break;
+                }
+            }
+            else if(key is > 185 and < 193)
+            {
+                switch (key)
+                {
+                    case 186:
+                        result = @";";
+                        break;
+                    case 187:
+                        result = @"=";
+                        break;
+                    case 188:
+                        result = @",";
+                        break;
+                    case 189:
+                        result = @"-";
+                        break;
+                    case 190:
+                        result = @".";
+                        break;
+                    case 191:
+                        result = @"/";
+                        break;
+                    case 192:
+                        result = @"`";
+                        break;
+                    default:
+                        break;
+                }
+            }
+            else if(key is > 218 and <223)
+            {
+                switch (key)
+                {
+                    case 219:
+                        result = @"[";
+                        break;
+                    case 220:
+                        result = @"\";
+                        break;
+                    case 221:
+                        result = @"]";
+                        break;
+                    case 222:
+                        result = @"'";
+                        break;
+                    default:
+                        break;
+                }
+            }
+            else
+            {
+                ConsoleKey cKey = (ConsoleKey)key;
+                result = cKey.ToString();
+            }
+            return result;
         }
 
         /// <summary>
